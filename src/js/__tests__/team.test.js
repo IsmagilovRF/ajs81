@@ -1,5 +1,6 @@
 import Zombie from '../zombie';
 import Team from '../team';
+import Boweman from '../boweman';
 
 test('Team add Zombie', () => {
   const shaun = new Zombie('Шон');
@@ -51,5 +52,14 @@ test('Team add Bowman repeatedly', () => {
 
   expect(() => {
     team.add(shaun);
+  }).toThrow();
+});
+
+test('test-name', () => {
+  const team = new Team();
+  const boweman = new Boweman('Лучник');
+  team.add(boweman);
+  expect(() => {
+    team.add(boweman);
   }).toThrow();
 });
