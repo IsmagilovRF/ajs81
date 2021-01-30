@@ -85,5 +85,5 @@ test('test-name-по-замечанию', () => {
       attack: 40,
       defence: 10,
     });
-  }).not.toThrow();
+  }).toThrow();
 });

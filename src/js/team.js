@@ -3,11 +3,19 @@ export default class Team {
     this.members = new Set();
   }
 
-  add(character) {
+  /* add(character) {
     if (this.members.has(character)) {
       throw new Error('Персонаж уже добавлен');
     }
+    this.members.add(character);
+  } */
 
+  add(character) {
+    for (const member of this.members) {
+      if (member.name === character.name) {
+        throw new Error('Персонаж уже добавлен');
+      }
+    }
     this.members.add(character);
   }
 
