@@ -45,7 +45,7 @@ test('Team addAll Zombie', () => {
   expect(received).toEqual(expected);
 });
 
-test('Team add Bowman repeatedly', () => {
+test('Team add Zombie repeatedly', () => {
   const shaun = new Zombie('Шон');
   const team = new Team();
   team.add(shaun);
@@ -55,11 +55,35 @@ test('Team add Bowman repeatedly', () => {
   }).toThrow();
 });
 
-test('test-name', () => {
+test('Team add Boweman repeatedly (test-name)', () => {
   const team = new Team();
   const boweman = new Boweman('Лучник');
   team.add(boweman);
+
   expect(() => {
     team.add(boweman);
   }).toThrow();
+});
+
+test('test-name-по-замечанию', () => {
+  const team = new Team();
+  team.add({
+    name: 'Лучник',
+    type: 'Bowman',
+    health: 50,
+    level: 3,
+    attack: 40,
+    defence: 10,
+  });
+
+  expect(() => {
+    team.add({
+      name: 'Лучник',
+      type: 'Bowman',
+      health: 50,
+      level: 3,
+      attack: 40,
+      defence: 10,
+    });
+  }).not.toThrow();
 });
